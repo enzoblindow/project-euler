@@ -6,6 +6,15 @@ from itertools import combinations
 
 LEGAL_VALUES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+GUESSES = [
+    (90342, 2),
+    (70794, 0),
+    (39458, 2),
+    (34109, 1),
+    (51545, 2),
+    (12531, 1),
+]
+
 class Digit(object):
     """Single digit in an array of digit, which build up the problem"""
     def __init__(self, index):
@@ -57,17 +66,7 @@ def solve(length, guesses):
             print r
 
 
-
-solve(5, guesses)
-
-
 if __name__ == '__main__':
-    # 5-digit example problem
-    guesses = [
-        (90342, 2),
-        (70794, 0),
-        (39458, 2),
-        (34109, 1),
-        (51545, 2),
-        (12531, 1),
-    ]
+    answer = solve(5, GUESSES)
+    print 'Problem: Find the sum of all the multiples of 3 or 5 below 1000.'
+    print 'Solution: {}'.format(answer)
