@@ -1,9 +1,14 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Decorator for main.py to measure runtime in s and update README.md with time
 automatically.s
 """
 import logging
 import time
+import os
+import io
 
 STATUS = {
     'WIP': u'\U0001F914',
@@ -31,14 +36,16 @@ def euler(pid, update_readme=False):
             logging.info('Solution: {}'.format(result))
             logging.info(u'Runtime: {}'.format(runtime_string))
             if update_readme:
-                update_readme(pid=pid, runtime_string=runtime_string)
+                update_runtime(pid=pid, runtime_string=runtime_string)
             return result
         return wrapper
     return decorated
 
 
-def update_readme(pid, runtime_string):
-    with open(filename, "r+") as f:
+def update_runtime(pid, runtime_string):
+    cwd = os.getcwd()
+    filename = '{}/README.md'.format(cwd)
+    with io.open(filename, "r+", encoding='utf8') as f:
         content = f.readlines()
         for idx, line in enumerate(content):
             try:
@@ -52,7 +59,7 @@ def update_readme(pid, runtime_string):
                 start = row.find(look_for) + len(look_for) + 1
                 end = row.find('|', start-1) - 1
                 content[idx] = row[:start] +  time_string + row[end:]
-                logging.info('Updated row in project README.md'.format(zid))
+                logging.info('Updated row in project README.md')
                 break
         f.seek(0)
         f.write(u''.join(content))
@@ -61,7 +68,7 @@ def update_readme(pid, runtime_string):
 
 def get_timestring(runtime):
     if runtime < 0.001:
-        unit = u'\u00B5s'
+        unit = u'µs'
         runtime *= 1000000
     elif runtime < 1:
         unit = u'ms'
