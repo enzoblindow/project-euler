@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-from project_euler.euler import euler
+from euler import euler
 
 MULTIPLES = [3, 5]
 

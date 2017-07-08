@@ -5,7 +5,7 @@
 Class based approach which uses a number class for each position in the Problem
 for tracking.
 """
-from project_euler.euler import euler
+from euler import euler
 from itertools import combinations
 
 LEGAL_VALUES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
