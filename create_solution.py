@@ -78,7 +78,7 @@ if __name__ == '__main__':
         f.close()
 
     # Add new entry to the repository README.md
-    filename = '{}/README.md'.format(cwd, zid)
+    filename = '{}/README.md'.format(cwd)
     readme_line = "| {} | {} |".format(zid, title)
     readme_line += " [Euler](https://projecteuler.net/problem={}) |".format(pid)
     readme_line += " [Solution](https://github.com/enzoblindow/project-euler/tree/master/p{}) |".format(zid)
