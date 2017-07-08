@@ -70,19 +70,25 @@ def get_timestring(runtime):
     if runtime < 0.001:
         unit = u'µs'
         runtime *= 1000000
+        runtime = round(runtime, 0)
     elif runtime < 1:
         unit = u'ms'
         runtime *= 1000
+        runtime = round(runtime, 0)
     elif runtime < 300:
         unit = u's'
         runtime *= 1
+        runtime = round(runtime, 1)
     elif runtime < 120*60:
         unit = u'm'
-        runtime /= 60
+        runtime *= 1/60
+        runtime = round(runtime, 1)
     elif runtime < 120*60*60:
         unit = u'h'
         runtime *= 1/60 * 1/60
+        runtime = round(runtime, 2)
     else:
         unit = u'd'
         runtime *= 1/60 * 1/60 * 1/24
-    return u'{}{}'.format(round(runtime, 1), unit)
+        runtime = round(runtime, 1)
+    return u'{}{}'.format(runtime, 1), unit)
