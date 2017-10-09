@@ -8,6 +8,7 @@ Also adds a new item to the list in the repositories README.md
 """
 import logging
 import os
+
 import requests
 
 import click
@@ -15,20 +16,20 @@ from bs4 import BeautifulSoup
 
 
 @click.command()
-@click.option('--pid', prompt='Project #: ',help='Number of the problem.')
+@click.option('--pid', prompt='Project #: ', help='Number of the problem.')
 def create(pid):
     zid = str(pid).zfill(3)
     cwd = os.getcwd()
     filename = '{}/p{}/README.md'.format(cwd, zid)
     url = 'https://projecteuler.net/problem={}'.format(pid)
-    r  = requests.get(url)
+    r = requests.get(url)
     data = r.text
     soup = BeautifulSoup(data, 'lxml')
 
     # Grab problem title and body from project euler website
     title = soup.h2.string
     assignment = []
-    for i in soup.findAll("div", { "class" : "problem_content" }):
+    for i in soup.findAll("div", {"class": "problem_content"}):
         for k in i.contents:
             try:
                 for s in k.stripped_strings:

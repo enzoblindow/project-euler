@@ -21,6 +21,7 @@ STATUS = {
     'BAD': u'\U0001F625',
 }
 
+
 def euler(pid, update_readme=False):
     """
     Used as a decorator for measuring runtime. When update_readme is omitted,
@@ -57,8 +58,8 @@ def update_runtime(pid, runtime_string):
                 time_string = u'(in {})'.format(runtime_string)
                 row = content[idx]
                 start = row.find(look_for) + len(look_for) + 1
-                end = row.find('|', start-1) - 1
-                content[idx] = row[:start] +  time_string + row[end:]
+                end = row.find('|', start - 1) - 1
+                content[idx] = row[:start] + time_string + row[end:]
                 logging.info('Updated row in project README.md')
                 break
         f.seek(0)
@@ -79,16 +80,16 @@ def get_timestring(runtime):
         unit = u's'
         runtime *= 1
         runtime = round(runtime, 1)
-    elif runtime < 120*60:
+    elif runtime < 120 * 60:
         unit = u'm'
-        runtime *= 1/60
+        runtime *= 1 / 60
         runtime = round(runtime, 1)
-    elif runtime < 120*60*60:
+    elif runtime < 120 * 60 * 60:
         unit = u'h'
-        runtime *= 1/60 * 1/60
+        runtime *= 1 / 60 * 1 / 60
         runtime = round(runtime, 2)
     else:
         unit = u'd'
-        runtime *= 1/60 * 1/60 * 1/24
+        runtime *= 1 / 60 * 1 / 60 * 1 / 24
         runtime = round(runtime, 1)
     return u'{}{}'.format(runtime, unit)
