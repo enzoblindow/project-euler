@@ -72,6 +72,7 @@ def solve():
 
 if __name__ == '__main__':
     solve()
+
     """.format(pid)
     with open(filename, 'w') as f:
         f.write(MAIN_PY)
