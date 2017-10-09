@@ -59,7 +59,7 @@ def create(pid):
         f.close()
 
     # Create euler problems main.py
-    filename = '{}/p{}/__init__.py'.format(cwd, zid)
+    filename = '{}/p{}/__main__.py'.format(cwd, zid)
     MAIN_PY = """#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from project_euler.euler import euler
