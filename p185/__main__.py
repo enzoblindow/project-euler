@@ -33,6 +33,7 @@ class Digit(object):
         self.solved = val
         self.values = [val]
 
+
 class Sequence(object):
     """Problem is an array of n Digits"""
     def __init__(self, length):
@@ -41,6 +42,7 @@ class Sequence(object):
     def remove_all(self, num):
         for idx, val in enumerate(map(int, str(num))):
             self.digits[idx].remove(val)
+
 
 @euler(pid=185, update_readme=True)
 def solve(length, guesses):
@@ -53,8 +55,8 @@ def solve(length, guesses):
             guesses.remove(guess)
 
     # Then find guesses where the sum of correct guesses exceed the length by 1
-    combinations = sum([map(list, combinations(guesses, i)) for i in range(len(guesses) + 1)], [])
-    for combination in combinations:
+    combs = sum([map(list, combinations(guesses, i)) for i in range(len(guesses) + 1)], [])
+    for combination in combs:
         _sum = sum([pair[1] for pair in combination])
         if _sum == length + 1:
             print combination
@@ -71,6 +73,4 @@ def solve(length, guesses):
 
 
 if __name__ == '__main__':
-    answer = solve(5, GUESSES)
-    print 'Problem: Find the sum of all the multiples of 3 or 5 below 1000.'
-    print 'Solution: {}'.format(answer)
+    print solve(5, GUESSES)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from project_euler.euler import euler
+from euler import euler
 
 
 @euler(pid=2, update_readme=True)
@@ -24,4 +24,4 @@ def fibonaccify(n1, n2):
 
 
 if __name__ == '__main__':
-    solve()
+    print solve()
