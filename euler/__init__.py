@@ -54,7 +54,7 @@ def update_runtime(pid, runtime_string):
             except ValueError:
                 continue
             if sid == int(pid):
-                look_for = '/__init__.py)'
+                look_for = '/__main__.py)'
                 time_string = u'(in {})'.format(runtime_string)
                 row = content[idx]
                 start = row.find(look_for) + len(look_for) + 1
