@@ -67,7 +67,7 @@ def create(pid):
     filename = '{}/p{}/__main__.py'.format(cwd, zid)
     MAIN_PY = """#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from project_euler.euler import euler
+from euler import euler
 
 
 @euler(pid={}, update_readme=False)
@@ -76,7 +76,7 @@ def solve():
 
 
 if __name__ == '__main__':
-    solve()
+    print solve()
 
     """.format(pid)
     with open(filename, 'w') as f:
