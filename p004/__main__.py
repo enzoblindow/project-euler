@@ -13,13 +13,17 @@ def is_palindrome(number):
 
 @euler(pid=4, update_readme=True)
 def solve():
+    results = list()
     firsts = range(100, 1000)[::-1]
     seconds = range(100, 1000)[::-1]
+
     for first in firsts:
         for second in seconds:
             number = first * second
             if is_palindrome(number):
-                return first, second, number
+                results.append(number)
+
+    return max(results)
 
 
 if __name__ == '__main__':
