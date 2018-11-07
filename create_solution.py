@@ -20,6 +20,11 @@ from bs4 import BeautifulSoup
 def create(pid):
     zid = str(pid).zfill(3)
     cwd = os.getcwd()
+
+    if os.path.isdir('{}/p{}'.format(cwd, zid)):
+        logging.warn('Solution already exists, aborting..')
+        return
+
     filename = '{}/p{}/README.md'.format(cwd, zid)
     url = 'https://projecteuler.net/problem={}'.format(pid)
     r = requests.get(url)
