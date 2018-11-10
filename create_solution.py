@@ -60,11 +60,11 @@ def create(pid):
         f.write('# {}\n'.format(title))
         f.write('### Problem {}\n'.format(zid))
         f.write('\n{}'.format(assignment))
-        logging.info('/p{}/README.md created'.format(zid))
+        logging.info('/solutions/p{}/README.md created'.format(zid))
         f.close()
 
     # Create euler problems main.py
-    filename = '{}/p{}/__main__.py'.format(cwd, zid)
+    filename = '{}/solutions/p{}/__main__.py'.format(cwd, zid)
     MAIN_PY = """#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from euler import euler
@@ -81,15 +81,15 @@ if __name__ == '__main__':
     """.format(pid)
     with open(filename, 'w') as f:
         f.write(MAIN_PY)
-        logging.info('/p{}/main.py created'.format(zid))
+        logging.info('/solutions/p{}/main.py created'.format(zid))
         f.close()
 
     # Add new entry to the repository README.md
     filename = '{}/README.md'.format(cwd)
     readme_line = "| {} | {} |".format(zid, title)
     readme_line += " [Euler](https://projecteuler.net/problem={}) |".format(pid)
-    readme_line += " [Solution](https://github.com/enzoblindow/project-euler/tree/master/p{}) |".format(zid)
-    readme_line += " [Python](https://github.com/enzoblindow/project-euler/blob/master/p{}/__init__.py) |".format(zid)
+    readme_line += " [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p{}) |".format(zid)
+    readme_line += " [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p{}/__main__.py) |".format(zid)
     readme_line += " |"
     with open(filename, "r+") as f:
         content = f.readlines()

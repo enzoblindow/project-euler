@@ -14,11 +14,11 @@ python setup.py develop
 ## Solutions
 | PID | Problem | | | | |
 |-|-|-|-|-|-|
-| 001 | Multiples of 3 and 5 | [Euler](https://projecteuler.net/problem=1) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/p001) | [Python](https://github.com/enzoblindow/project-euler/blob/master/p001/__main__.py) (in 750µs) | :heart_eyes: |
-| 002 | Even Fibonacci numbers | [Euler](https://projecteuler.net/problem=2) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/p002) | [Python](https://github.com/enzoblindow/project-euler/blob/master/p002/__main__.py) (in 52µs) | |
-| 003 | Largest prime factor | [Euler](https://projecteuler.net/problem=3) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/p003) | [Python](https://github.com/enzoblindow/project-euler/blob/master/p003/__main__.py) (in 657ms) | |
-| 004 | Largest palindrome product | [Euler](https://projecteuler.net/problem=4) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/p004) | [Python](https://github.com/enzoblindow/project-euler/blob/master/p004/__main__.py) (in 9ms) | |
-| 185 | Number Mind | [Euler](https://projecteuler.net/problem=185) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/p185) | [Python](https://github.com/enzoblindow/project-euler/blob/master/p185/__main__.py) (in 524µs) | :smirk: |
+| 001 | Multiples of 3 and 5 | [Euler](https://projecteuler.net/problem=1) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p001) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p001/__main__.py) (in 750µs) | :heart_eyes: |
+| 002 | Even Fibonacci numbers | [Euler](https://projecteuler.net/problem=2) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p002) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p002/__main__.py) (in 52µs) | :heart_eyes: |
+| 003 | Largest prime factor | [Euler](https://projecteuler.net/problem=3) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p003) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p003/__main__.py) (in 657ms) | :heart_eyes: |
+| 004 | Largest palindrome product | [Euler](https://projecteuler.net/problem=4) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p004) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p004/__main__.py) (in 9ms) | :heart_eyes: |
+| 185 | Number Mind | [Euler](https://projecteuler.net/problem=185) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p185) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p185/__main__.py) (in 524µs) | :smirk: |
 
 
 
