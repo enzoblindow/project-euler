@@ -21,11 +21,11 @@ def create(pid):
     zid = str(pid).zfill(3)
     cwd = os.getcwd()
 
-    if os.path.isdir('{}/p{}'.format(cwd, zid)):
+    if os.path.isdir('{}/solutions/p{}'.format(cwd, zid)):
         logging.warn('Solution already exists, aborting..')
         return
 
-    filename = '{}/p{}/README.md'.format(cwd, zid)
+    filename = '{}/solutions/p{}/README.md'.format(cwd, zid)
     url = 'https://projecteuler.net/problem={}'.format(pid)
     r = requests.get(url)
     data = r.text
@@ -46,7 +46,7 @@ def create(pid):
     assignment = assignment.replace("u'", "").replace("'", " ")
     logging.info('Euler problem title and assignment fetched')
 
-    # Create diretory
+    # Create directory
     if not os.path.exists(os.path.dirname(filename)):
         try:
             os.makedirs(os.path.dirname(filename))
@@ -81,7 +81,7 @@ if __name__ == '__main__':
     """.format(pid)
     with open(filename, 'w') as f:
         f.write(MAIN_PY)
-        logging.info('/solutions/p{}/main.py created'.format(zid))
+        logging.info('/solutions/p{}/__main__.py created'.format(zid))
         f.close()
 
     # Add new entry to the repository README.md
