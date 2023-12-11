@@ -3,7 +3,7 @@
 from euler import euler
 
 
-@euler(pid=6, update_readme=False)
+@euler(pid=6, update_readme=True)
 def solve():
     sum_of_squares = sum(i**2 for i in range(1, 101))
     sum_squared = sum(range(1, 101))**2

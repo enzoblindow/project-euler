@@ -19,7 +19,7 @@ python setup.py develop
 | 003 | Largest prime factor | [Euler](https://projecteuler.net/problem=3) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p003) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p003/__main__.py) (in 657ms) | :heart_eyes: |
 | 004 | Largest palindrome product | [Euler](https://projecteuler.net/problem=4) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p004) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p004/__main__.py) (in 9ms) | :heart_eyes: |
 | 005 | Smallest multiple | [Euler](https://projecteuler.net/problem=5) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p005) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p005/__main__.py) (in 22.5s) | |
-| 006 | Sum Square Difference | [Euler](https://projecteuler.net/problem=006) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p006) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p006/__main__.py) | |
+| 006 | Sum Square Difference | [Euler](https://projecteuler.net/problem=006) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p006) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p006/__main__.py) (in 8µs) | |
 | 185 | Number Mind | [Euler](https://projecteuler.net/problem=185) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p185) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p185/__main__.py) (in 524µs) | :smirk: |
 
 
