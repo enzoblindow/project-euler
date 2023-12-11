@@ -18,4 +18,4 @@ def solve(num):
 
 
 if __name__ == '__main__':
-    print solve(1000)
+    print(solve(1000))

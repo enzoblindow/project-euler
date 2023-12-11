@@ -76,7 +76,7 @@ def solve():
 
 
 if __name__ == '__main__':
-    print solve()
+    print(solve())
 
     """.format(pid)
     with open(filename, 'w') as f:

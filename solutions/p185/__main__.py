@@ -59,7 +59,7 @@ def solve(length, guesses):
     for combination in combs:
         _sum = sum([pair[1] for pair in combination])
         if _sum == length + 1:
-            print combination
+            print(combination)
             r = {key: [] for key in range(length)}
             com_len = len(combination)
             for guess in combination:
@@ -67,10 +67,10 @@ def solve(length, guesses):
                     r[idx] += [val]
             for i in range(length):
                 counts = [[x,r[i].count(x)] for x in set(r[i])]
-                print counts
+                print(counts)
 
-            print r
+            print(r)
 
 
 if __name__ == '__main__':
-    print solve(5, GUESSES)
+    print(solve(5, GUESSES))
