@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 from euler import euler
+from functools import reduce
 
 
 PRIMES = list()
@@ -54,15 +55,16 @@ def divide_by_prime(num, by, prime_dividends):
 @euler(pid=3, update_readme=True)
 def solve(num):
     divide_by_prime(num, 2, prime_list(100000))
-    return PRIMES
 
-
-if __name__ == '__main__':
-    PRIMES = list()
-    val = 600851475143
-    print(solve(val))
     res = reduce(lambda x, y : x * y, PRIMES)
     if res == val:
         print('Largest prime factor is', max(PRIMES))
+        return max(PRIMES)
     else:
         print('Something went wrong')
+
+
+if __name__ == '__main__':
+    val = 600851475143
+    print(solve(val))
+
