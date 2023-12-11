@@ -18,6 +18,7 @@ from bs4 import BeautifulSoup
 @click.command()
 @click.option('--pid', prompt='Project #: ', help='Number of the problem.')
 def create(pid):
+    pid = int(pid)
     zid = str(pid).zfill(3)
     cwd = os.getcwd()
 
@@ -33,6 +34,7 @@ def create(pid):
 
     # Grab problem title and body from project euler website
     title = soup.h2.string
+    title = title.replace('$', '')
     assignment = []
     for i in soup.findAll("div", {"class": "problem_content"}):
         for k in i.contents:
@@ -86,19 +88,18 @@ if __name__ == '__main__':
 
     # Add new entry to the repository README.md
     filename = '{}/README.md'.format(cwd)
-    readme_line = "| {} | {} |".format(zid, title)
-    readme_line += " [Euler](https://projecteuler.net/problem={}) |".format(pid)
-    readme_line += " [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p{}) |".format(zid)
-    readme_line += " [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p{}/__main__.py) |".format(zid)
-    readme_line += " |"
+    readme_line = f"| [{zid}](https://github.com/enzoblindow/project-euler/tree/master/solutions/p{zid}) |"
+    readme_line += f" [{title}](https://projecteuler.net/problem={pid}) |"
+    readme_line += f" [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p{zid}/__main__.py) |"
+    readme_line += f" | | | | | | |"
     with open(filename, "r+") as f:
         content = f.readlines()
         for idx, line in enumerate(content):
             try:
-                sid = int(line[2:5])
+                sid = int(line[3:6])
             except ValueError:
                 continue
-            if sid > int(pid):
+            if int(sid) > int(pid):
                 content.insert(idx, readme_line + '\n')
                 logging.info('Added row in project README.md'.format(zid))
                 break

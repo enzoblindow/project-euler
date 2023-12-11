@@ -12,15 +12,18 @@ python setup.py develop
 
 
 ## Solutions
-| PID | Problem | | | | |
-|-|-|-|-|-|-|
-| 001 | Multiples of 3 and 5 | [Euler](https://projecteuler.net/problem=1) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p001) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p001/__main__.py) (in 131µs) | ✅ |
-| 002 | Even Fibonacci numbers | [Euler](https://projecteuler.net/problem=2) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p002) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p002/__main__.py) (in 10µs) | ✅ |
-| 003 | Largest prime factor | [Euler](https://projecteuler.net/problem=3) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p003) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p003/__main__.py) (in 69ms) | ✅ |
-| 004 | Largest palindrome product | [Euler](https://projecteuler.net/problem=4) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p004) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p004/__main__.py) (in 2ms) | ✅ |
-| 005 | Smallest multiple | [Euler](https://projecteuler.net/problem=5) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p005) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p005/__main__.py) (in 3.9s) | ✅ |
-| 006 | Sum Square Difference | [Euler](https://projecteuler.net/problem=006) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p006) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p006/__main__.py) (in 8µs) | ✅ |
-| 185 | Number Mind | [Euler](https://projecteuler.net/problem=185) | [Solution](https://github.com/enzoblindow/project-euler/tree/master/solutions/p185) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p185/__main__.py) (in 524µs) | ✅ |
+| PID | Problem | My Solution | Time | Mem. | ChatGPT | Time | Mem. | |
+|-|-|-|-|-|-|-|-|-|
+| [001](https://github.com/enzoblindow/project-euler/tree/master/solutions/p001) | [Multiples of 3 and 5](https://projecteuler.net/problem=1) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p001/__main__.py) | 131µs | | | | | ✅ |
+| [002](https://github.com/enzoblindow/project-euler/tree/master/solutions/p002) | [Even Fibonacci numbers](https://projecteuler.net/problem=2) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p002/__main__.py) | 10µs | | | | | ✅ |
+| [003](https://github.com/enzoblindow/project-euler/tree/master/solutions/p003) | [Largest prime factor](https://projecteuler.net/problem=3) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p003/__main__.py) | 69ms | | | | | ✅ |
+| [004](https://github.com/enzoblindow/project-euler/tree/master/solutions/p004) | [Largest palindrome product](https://projecteuler.net/problem=4) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p004/__main__.py) | 2ms | | | | | ✅ |
+| [005](https://github.com/enzoblindow/project-euler/tree/master/solutions/p005) | [Smallest multiple](https://projecteuler.net/problem=5) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p005/__main__.py) | 3.9s | | | | | ✅ |
+| [006](https://github.com/enzoblindow/project-euler/tree/master/solutions/p006) | [Sum Square Difference](https://projecteuler.net/problem=006) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p006/__main__.py) | 8µs | | | | | ✅ |
+| [007](https://github.com/enzoblindow/project-euler/tree/master/solutions/p007) | [10001st Prime](https://projecteuler.net/problem=007) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p007/__main__.py) | | | | | | |
+| [008](https://github.com/enzoblindow/project-euler/tree/master/solutions/p008) | [Largest Product in a Series](https://projecteuler.net/problem=8) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p008/__main__.py) | | | | | | | |
+| [009](https://github.com/enzoblindow/project-euler/tree/master/solutions/p009) | [Special Pythagorean Triplet](https://projecteuler.net/problem=9) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p009/__main__.py) | | | | | | | |
+| [185](https://github.com/enzoblindow/project-euler/tree/master/solutions/p185) | [Number Mind](https://projecteuler.net/problem=185) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p185/__main__.py) | 524µs | | | | | ✅ |
 
 
 
