@@ -11,14 +11,8 @@ import os
 import io
 
 STATUS = {
-    'WIP': u'\U0001F914',
-    'OPTIMAL': u'\U0001F60D',
-    'WELL_DONE': u'\U0001F60E',
-    'DONE': u'\U0001F60F',
-    'OK': u'\U0001F642',
-    'NOT_STARTED': u'\U0001F636',
-    'IMPROVE': u'\U0001F644',
-    'BAD': u'\U0001F625',
+    'CORRECT': u'\U00002705',
+    'INCORRECT': u'\U0000274C',
 }
 
 
@@ -29,23 +23,36 @@ def euler(pid, update_readme=False):
     """
     def decorated(f):
         def wrapper(*args, **kwargs):
+            logging.basicConfig(level=logging.INFO)
+
+            # run
             start = time.time()
             result = f(*args, **kwargs)
             runtime = time.time() - start
             runtime_string = get_timestring(runtime)
+
+            # check result
+            expected_result = get_expected_result(pid=pid)
+            is_correct = True if str(result) == expected_result else False
+            is_correct_string = 'Correct' if is_correct else 'Incorrect'
+            
+            # print results
             logging.info('=======================')
-            logging.info('Solution: {}'.format(result))
+            logging.info(f'Solution: {result} ({is_correct_string}, expected result: {expected_result})')
             logging.info(u'Runtime: {}'.format(runtime_string))
+            
+            # store results
             if update_readme:
-                update_runtime(pid=pid, runtime_string=runtime_string)
+                update_runtime(pid=pid, runtime_string=runtime_string, is_correct=is_correct)
+            
             return result
         return wrapper
     return decorated
 
 
-def update_runtime(pid, runtime_string):
-    cwd = os.getcwd()
-    filename = '{}/README.md'.format(cwd)
+def update_runtime(pid, runtime_string, is_correct):
+    filename = '{}/README.md'.format(os.getcwd())
+    
     with io.open(filename, "r+", encoding='utf8') as f:
         content = f.readlines()
         for idx, line in enumerate(content):
@@ -54,12 +61,19 @@ def update_runtime(pid, runtime_string):
             except ValueError:
                 continue
             if sid == int(pid):
+                # update runtime string
                 look_for = '/__main__.py)'
                 time_string = u'(in {})'.format(runtime_string)
                 row = content[idx]
                 start = row.find(look_for) + len(look_for) + 1
                 end = row.find('|', start - 1) - 1
                 content[idx] = row[:start] + time_string + row[end:]
+
+                # update status indicator
+                status_indicator = STATUS['CORRECT'] if is_correct else STATUS['INCORRECT']
+                row = content[idx]
+                content[idx] = row[:-6] + f'| {status_indicator} |\n'
+
                 logging.info('Updated row in project README.md')
                 break
         f.seek(0)
@@ -93,3 +107,20 @@ def get_timestring(runtime):
         runtime *= 1 / 60 * 1 / 60 * 1 / 24
         runtime = round(runtime, 1)
     return u'{}{}'.format(runtime, unit)
+
+
+def get_expected_result(pid, file_path='./data/expected_values.txt'):
+    result_dict = {}
+    
+    try:
+        with open(file_path, 'r') as file:
+            for line in file:
+                key, value = line.strip().split(' ', 1)
+                result_dict[key] = value
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    
+    return result_dict[f'{pid}']
+
