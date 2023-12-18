@@ -14,7 +14,7 @@ def execute_query(query, parameters=None):
     Returns:
     - list: A list of rows resulting from the query.
     """
-    logging.info("Executing query")
+    logging.debug("Attempting to executing query")
 
     conn = sqlite3.connect(DB_NAME)
 
@@ -30,7 +30,7 @@ def execute_query(query, parameters=None):
 
         conn.commit()
 
-        logging.info("Query executed successfully")
+        logging.debug("Query executed successfully")
         logging.debug(query)
 
         return rows
