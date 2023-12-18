@@ -44,6 +44,17 @@ def execute_query(query, parameters=None):
         conn.close()
 
 
+def check_if_table_exists(table_name:str):
+    try: 
+        result = execute_query(f"SELECT FROM {table_name} LIMIT 1")
+        if len(result) > 0:
+            return True
+        else:
+            return False
+    except:
+        return False
+
+
 def init_expected_answers_table(reset_table=False):
     # Recreate table if reset_table flag is enabled
     if reset_table:
