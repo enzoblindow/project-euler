@@ -2,9 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Quickly add new solution from the euler project list and create the barebone
-python main.py file for it.
-Also adds a new item to the list in the repositories README.md
+Fetch all problems from the Project Euler websites and storing them inside a DB.
 """
 import logging
 
@@ -90,18 +88,4 @@ def fetch_all_euler_problems_from_platform(reset_table=False):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     fetch_all_euler_problems_from_platform(reset_table=False)
-
-    # create_solutions_table_query = """
-    #     CREATE TABLE IF NOT EXISTS solutions (
-    #         id INTEGER PRIMARY KEY AUTOINCREMENT,
-    #         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    #         problem_id INTEGER NOT NULL,
-    #         engine TEXT NOT NULL,
-    #         code_solution TEXT NOT NULL,
-    #         is_executable INTEGER,
-    #         is_correct INTEGER
-    #     )
-    # """
-
-
 
