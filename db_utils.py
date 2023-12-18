@@ -44,29 +44,29 @@ def execute_query(query, parameters=None):
         conn.close()
 
 
-def init_expected_values_table(reset_table=False):
+def init_expected_answers_table(reset_table=False):
     # Recreate table if reset_table flag is enabled
     if reset_table:
-        execute_query("DROP TABLE IF EXISTS expected_values;")
+        execute_query("DROP TABLE IF EXISTS expected_answers;")
 
     # Create the table if it doesn't exist
     execute_query("""
-        CREATE TABLE IF NOT EXISTS expected_values (
+        CREATE TABLE IF NOT EXISTS expected_answers (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             problem_id INTEGER NOT NULL,
             expected_value TEXT NOT NULL
         )
     """)
 
-    # Open expected values file and write it's contents into the db
-    with open('./data/expected_values.txt', 'r') as file:
+    # Open expected answers file and write it's contents into the db
+    with open('./data/expected_answers.txt', 'r') as file:
         for line in file:
             values = line.strip().split(' ')
             if len(values) == 2:
                 problem_id, expected_value = map(str, values)
 
                 # check if row exists, then skip, otherwise write
-                result = execute_query(f"SELECT problem_id FROM expected_values WHERE problem_id = {problem_id}")
+                result = execute_query(f"SELECT problem_id FROM expected_answers WHERE problem_id = {problem_id}")
                 logging.debug(result)
 
                 if len(result) > 0:
@@ -74,7 +74,7 @@ def init_expected_values_table(reset_table=False):
                     continue
                 else:
                     execute_query(
-                        "INSERT INTO expected_values (problem_id, expected_value) VALUES (?, ?)", 
+                        "INSERT INTO expected_answers (problem_id, expected_value) VALUES (?, ?)", 
                         (problem_id, expected_value)
                     )
                     logging.info(f"Successfully wrote expected value for problem {problem_id} into db")
@@ -82,5 +82,5 @@ def init_expected_values_table(reset_table=False):
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    init_expected_values_table(reset_table=False)
+    init_expected_answers_table(reset_table=False)
 
