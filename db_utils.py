@@ -54,7 +54,7 @@ def init_expected_answers_table(reset_table=False):
         CREATE TABLE IF NOT EXISTS expected_answers (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             problem_id INTEGER NOT NULL,
-            expected_value TEXT NOT NULL
+            expected_answer TEXT NOT NULL
         )
     """)
 
@@ -63,24 +63,24 @@ def init_expected_answers_table(reset_table=False):
         for line in file:
             values = line.strip().split(' ')
             if len(values) == 2:
-                problem_id, expected_value = map(str, values)
+                problem_id, expected_answer = map(str, values)
 
                 # check if row exists, then skip, otherwise write
                 result = execute_query(f"SELECT problem_id FROM expected_answers WHERE problem_id = {problem_id}")
                 logging.debug(result)
 
                 if len(result) > 0:
-                    logging.debug(f"Skipped writing expected value for problem {problem_id} as it already exists in db")
+                    logging.debug(f"Skipped writing expected answer for problem {problem_id} as it already exists in db")
                     continue
                 else:
                     execute_query(
-                        "INSERT INTO expected_answers (problem_id, expected_value) VALUES (?, ?)", 
-                        (problem_id, expected_value)
+                        "INSERT INTO expected_answers (problem_id, expected_answer) VALUES (?, ?)", 
+                        (problem_id, expected_answer)
                     )
                     logging.info(f"Successfully wrote expected value for problem {problem_id} into db")
 
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    init_expected_answers_table(reset_table=False)
+    init_expected_answers_table(reset_table=True)
 
