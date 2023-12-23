@@ -1,5 +1,7 @@
 import logging
 import sqlite3
+import traceback
+import sys
 
 DB_NAME = 'euler.sqlite'
 
@@ -35,9 +37,16 @@ def execute_query(query, parameters=None):
 
         return rows
     
-    except: 
+    except sqlite3.Error as error:
         logging.warning("Query execution failed")
         logging.debug(query)
+        logging.warning('SQLite error: %s' % (' '.join(error.args)))
+        logging.warning("Exception class is: ", error.__class__)
+        logging.warning('SQLite traceback: ')
+        exc_type, exc_value, exc_tb = sys.exc_info()
+        logging.warning(traceback.format_exception(exc_type, exc_value, exc_tb))
+
+
 
     finally:
         cursor.close()

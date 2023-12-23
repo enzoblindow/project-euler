@@ -49,8 +49,8 @@ def fetch_problem_from_euler_platform(pid):
 
     # write problem assignment to db
     execute_query(
-        "INSERT INTO problems (title, assignment, expected_answer) VALUES (?, ?, ?)", 
-        (title, assignment, expected_answer)
+        "INSERT INTO problems (problem_type, title, assignment, expected_answer) VALUES (?, ?, ?, ?)", 
+        ("euler", title, assignment, expected_answer)
     )
 
 def fetch_all_euler_problems_from_platform(reset_table=False):
@@ -66,6 +66,7 @@ def fetch_all_euler_problems_from_platform(reset_table=False):
         CREATE TABLE IF NOT EXISTS problems (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            problem_type TEXT NOT NULL,
             title TEXT NOT NULL,
             assignment TEXT NOT NULL,
             expected_answer REAL
@@ -87,5 +88,5 @@ def fetch_all_euler_problems_from_platform(reset_table=False):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
-    fetch_all_euler_problems_from_platform(reset_table=False)
+    fetch_all_euler_problems_from_platform(reset_table=True)
 
