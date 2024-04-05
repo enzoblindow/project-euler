@@ -1,5 +1,5 @@
 # Project Euler
-Personal solutions and attempts to the problems listed on [Project Euler Archives](https://projecteuler.net/archives)
+Personal solutions and attempts to the problems listed on [Project Euler Archives](https://projecteuler.net/archives) benchmarked on memory footprint and processing wall time against ChatGPT, Claude, and Gemini.
 
 ### Add problem to repository
 Run `create_solution.py` and omit the project number from the archives. It will fetch the assignment automatically and create the bare bone files with runtime tracking.
@@ -10,8 +10,11 @@ Automatically added assignments come with runtime tracking. To enable the `@eule
 python setup.py develop
 ```
 
+### Benchmarking
+Running the solver will automatically fetch an initial zero shot attempt at a solution from ChatGPT, Claude, and Gemini on passing the problem statement. The code is executed in a containerized environment. If the executed code does not run or does not finish within 2 standard deviations of the wall time of the personal solution, a revised prompt including the error message is passed back to the LLM API with up to N_RETRIES.
 
-## Solutions
+# Archive
+## Solutions (stale, refer to problems folder)
 | PID | Problem | My Solution | Time | Mem. | ChatGPT | Time | Mem. | |
 |-|-|-|-|-|-|-|-|-|
 | [001](https://github.com/enzoblindow/project-euler/tree/master/solutions/p001) | [Multiples of 3 and 5](https://projecteuler.net/problem=1) | [Python](https://github.com/enzoblindow/project-euler/blob/master/solutions/p001/__main__.py) | 131µs | | | | | ✅ |
